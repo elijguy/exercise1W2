@@ -3,16 +3,18 @@ var dataconcat = '';
 var hosteth = process.argv[2];
 var patheth = process.argv[3];
 
+var options = {
+host: hosteth,
+path: patheth
+};
 
-function getAndPrintHTML (hosted,pathed){
+
+function getAndPrintHTML (hostAndPath){
 
 
- var requestOptions = {
-    host: hosted,
-    path: pathed
-  };
+ var hostAndPath;
 
- https.get(requestOptions, function (response) {
+ https.get(hostAndPath, function (response) {
 
   // set encoding of received data to UTF-8
   response.setEncoding('utf8');
@@ -34,4 +36,4 @@ function getAndPrintHTML (hosted,pathed){
 
 }
 
-getAndPrintHTML(hosteth,patheth);
+getAndPrintHTML(options);
